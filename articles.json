@@ -1,189 +1,69 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will Wu · 實戰派健身內容寫手</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --black: #111110; --gray-dark: #3a3935; --gray-mid: #6b6860; --gray-light: #a8a59f; --gray-rule: #e4e1da; --bg: #ffffff; --bg-tint: #f9f8f6; --tag-bg: #f2f0eb; --tag-color: #5a5750; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--black); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
-.container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-header { border-bottom: 1px solid var(--gray-rule); position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); z-index: 50; }
-.header-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
-.site-name { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 600; color: var(--black); text-decoration: none; letter-spacing: 0.02em; }
-.header-nav { display: flex; gap: 20px; }
-.header-link { font-size: 13px; color: var(--gray-mid); text-decoration: none; font-weight: 500; transition: color 0.15s; }
-.header-link:hover { color: var(--black); }
-.hero { padding: 72px 0 56px; border-bottom: 1px solid var(--gray-rule); }
-.hero-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 20px; }
-.hero h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(28px, 5vw, 38px); font-weight: 300; line-height: 1.4; color: var(--black); margin-bottom: 24px; }
-.hero-bio { font-size: 15px; color: var(--gray-dark); line-height: 1.9; max-width: 540px; margin-bottom: 16px; }
-.hero-bio-highlight { font-weight: 500; color: var(--black); }
-.hero-cta { font-size: 13px; color: var(--gray-light); margin-bottom: 28px; }
-.hero-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.hero-tag { font-size: 12px; color: var(--tag-color); background: var(--tag-bg); padding: 4px 12px; border-radius: 2px; letter-spacing: 0.04em; }
-.filter-bar { padding: 40px 0 0; display: flex; gap: 6px; flex-wrap: wrap; }
-.filter-btn { font-size: 13px; font-family: 'Noto Sans TC', sans-serif; color: var(--gray-mid); background: none; border: 1px solid var(--gray-rule); padding: 5px 14px; border-radius: 2px; cursor: pointer; transition: all 0.15s; }
-.filter-btn:hover { color: var(--black); border-color: #ccc; }
-.filter-btn.active { color: #fff; background: var(--black); border-color: var(--black); }
-.article-list { padding: 8px 0 80px; }
-.article-item { padding: 36px 0; border-bottom: 1px solid var(--gray-rule); display: grid; grid-template-columns: 1fr 80px; gap: 16px; align-items: start; cursor: pointer; transition: opacity 0.15s; text-decoration: none; color: inherit; }
-.article-item:hover { opacity: 0.7; }
-.article-item:first-child { border-top: 1px solid var(--gray-rule); margin-top: 20px; }
-.article-type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 10px; }
-.article-title { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 400; line-height: 1.5; color: var(--black); margin-bottom: 10px; }
-.article-summary { font-size: 14px; color: var(--gray-mid); line-height: 1.8; }
-.article-meta { text-align: right; font-size: 12px; color: var(--gray-light); line-height: 1.7; padding-top: 4px; }
-footer { border-top: 1px solid var(--gray-rule); padding: 28px 0; }
-.footer-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-.footer-name { font-size: 13px; color: var(--gray-light); }
-.footer-link { font-size: 13px; color: var(--gray-mid); text-decoration: none; border-bottom: 1px solid var(--gray-rule); transition: color 0.15s;}
-.footer-link:hover { color: var(--black); border-color: var(--black); }
-.loading { padding: 60px 0; text-align: center; font-size: 14px; color: var(--gray-light); }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-inner">
-    <a class="site-name" href="#" onclick="showList(); return false;">Will Wu</a>
-    <nav class="header-nav">
-      <a class="header-link" href="#about" onclick="showList();">關於我</a>
-      <a class="header-link" href="#portfolio" onclick="showList();">作品集</a>
-      <a class="header-link" href="mailto:will.wh.wu1129@gmail.com" style="border-bottom: 1px solid var(--gray-rule);">聯絡提案</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container">
-  <div id="list-view">
-    <section class="hero" id="about">
-      <div class="hero-label">健身產業七年實戰・品牌內容顧問</div>
-      <h1>用營運邏輯拆解會員心理，<br>寫出讓品牌獲利的轉化文案。</h1>
-      <p class="hero-bio">
-        當會員刷卡走進閘門那一刻，代表他受夠了衣櫃深處那件，明明很喜歡卻永遠拉不上拉鍊的當季牛仔褲。雖然流行會循環，但絕對不想等到下一次。<br><br>
-        擁有健身產業七年實戰背景，我熟悉消費者從猶豫到決定的每一個心理節點。我看過太多人在自由重量區邊緣滑著手機，把時間耗在假裝運動的打卡上；也看著無數學員經歷「猶豫、簽約、消失、又回來」，最後因為看不見體態改變，在櫃檯前急著解約。<br><br>
-        我知道一個人要說服自己踏進健身房需要多少勇氣，更深知一個品牌要讓人留下來有多難。<br><br>
-        所以，我將這些現場洞察轉化為品牌內容。<span class="hero-bio-highlight">把生硬的運動科學，轉譯成有溫度的教練語氣。</span>讓你的文字褪去教條式的說教，成為陪伴學員、讓他們心甘情願留下來的安定力量。
-      </p>
-      <p class="hero-cta">* 目前僅承接健身、運動科技、健康管理類案源。</p>
-      <div class="hero-tags">
-        <span class="hero-tag">內容戰略規劃</span>
-        <span class="hero-tag">場館營運洞察</span>
-        <span class="hero-tag">銷售轉化文案</span>
-        <span class="hero-tag">會員留存系統</span>
-      </div>
-    </section>
-
-    <div class="filter-bar" id="portfolio">
-      <button class="filter-btn active" data-filter="all" onclick="filterArticles('all', this)">全部作品</button>
-      <button class="filter-btn" data-filter="long-form" onclick="filterArticles('long-form', this)">產業洞察</button>
-      <button class="filter-btn" data-filter="social" onclick="filterArticles('social', this)">社群文案</button>
-      <button class="filter-btn" data-filter="copywriting" onclick="filterArticles('copywriting', this)">銷售文案</button>
-    </div>
-
-    <div class="article-list" id="article-list">
-      <div class="loading">載入中…</div>
-    </div>
-  </div>
-
-  <div id="detail-view" style="display: none; padding: 56px 0 80px;">
-    <button onclick="showList()" style="font-size: 13px; color: var(--gray-mid); background: none; border: none; cursor: pointer; margin-bottom: 40px;">← 返回作品列表</button>
-    <div id="detail-content"></div>
-  </div>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <span class="footer-name">© 2026 Will Wu</span>
-    <a class="footer-link" href="mailto:will.wh.wu1129@gmail.com">will.wh.wu1129@gmail.com</a>
-  </div>
-</footer>
-
-<script>
-const ARTICLES_URL = 'https://willwhwu1129.github.io/portfolio/articles.json';
-let allArticles = [];
-let currentFilter = 'all';
-
-async function loadArticles() {
-  try {
-    const res = await fetch(ARTICLES_URL + '?v=' + Date.now());
-    allArticles = await res.json();
-    renderList(allArticles);
-  } catch(e) {
-    document.getElementById('article-list').innerHTML = '<div class="loading">載入失敗。請確認路徑與格式。</div>';
+[
+  {
+    "id": "strategy-01",
+    "type": "long-form",
+    "typeLabel": "產業洞察",
+    "title": "如何透過內容佈署，省下顧問 30% 的無效溝通時間？",
+    "summary": "以《加入健身房前必知的 5 件事》為例，拆解如何將內容轉化為營運端的「自動化客群篩選機」。",
+    "date": "2026-05",
+    "client": "連鎖健身品牌",
+    "isLocked": true,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "許多老闆認為文案只是衛教，但在營運者眼裡，那是防禦退費的第一道防線。我們必須先展現讓會員感同身受的文字實力，才能導向後端的營運轉化。"
+      },
+      {
+        "type": "heading",
+        "text": "執行範文：加入健身房前，你需要知道的 5 件事"
+      },
+      {
+        "type": "paragraph",
+        "text": "每年一月，健身房門口的人龍總是特別長。新年的決心剛烈，大家都想改變。三個月後，器材旁邊又變回空空的了。問題不在意志力，在於大多數人加入前，沒問過自己這五件事。"
+      },
+      {
+        "type": "paragraph",
+        "text": "例如，目標要具體到可以量化：『想變健康』不算目標，『三個月後深蹲能蹲自身體重』才是。此外，通勤距離也是關鍵，研究顯示，距離家或公司超過 15 分鐘，長期出勤率會明顯下降。那間設備很棒但在信義區的健身房，對住在板橋的你來說是個隱形阻力..."
+      },
+      {
+        "type": "paragraph",
+        "text": "---"
+      },
+      {
+        "type": "paragraph",
+        "text": "【策略核心：這不只是一篇文章】<br>單靠這五點建議無法解決退費問題，它們只是「載體」。真正的價值在於如何結合廣告端的過濾與現場顧問的話術對接。若想查看完整的「名單廣告定錨」與「Day 1-7 SOP」策略拆解，請解鎖下方內容。"
+      }
+    ]
+  },
+  {
+    "id": "mindset-3",
+    "type": "social",
+    "typeLabel": "社群文案",
+    "title": "克服運動懶惰的三個心態",
+    "summary": "三則 IG 貼文系列，從心態切入，幫健身品牌帳號提升互動與追蹤。",
+    "date": "2025-02",
+    "client": "健身品牌 IG",
+    "posts": [
+      {
+        "number": "01",
+        "tag": "心態 #1",
+        "title": "「完美才開始」是最貴的謊言",
+        "body": "等器材到了再練、等時間夠了再去、等狀態好了再說——這些都是拖延的包裝紙。\n\n今天 20 分鐘的訓練，比完美計畫後的零次，強一百倍。",
+        "hashtags": "#健身心態 #開始就對了 #運動習慣"
+      }
+    ]
+  },
+  {
+    "id": "membership-sales",
+    "type": "copywriting",
+    "typeLabel": "銷售文案",
+    "title": "年度會員方案銷售頁",
+    "summary": "精品健身房品牌年度會員方案銷售頁，以痛點切入、方案對比收尾，目標提升年約轉換率。",
+    "date": "2025-01",
+    "client": "精品健身房品牌",
+    "salesPage": {
+      "headline": "你不是缺乏意志力，你職是缺一個值得回去的地方",
+      "cta": "預約免費體驗日"
+    }
   }
-}
-
-function renderList(articles) {
-  const el = document.getElementById('article-list');
-  const filtered = currentFilter === 'all' ? articles : articles.filter(a => a.type === currentFilter);
-  el.innerHTML = filtered.map(a => `
-    <a class="article-item" href="#${a.id}" onclick="showDetail('${a.id}'); return false;">
-      <div>
-        <div class="article-type">${a.typeLabel} ${a.isLocked ? '🔒' : ''}</div>
-        <div class="article-title">${a.title}</div>
-        <div class="article-summary">${a.summary}</div>
-      </div>
-      <div class="article-meta">${a.date}<br>${a.client}</div>
-    </a>
-  `).join('');
-}
-
-function filterArticles(type, btn) {
-  currentFilter = type;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderList(allArticles);
-}
-
-function showDetail(id) {
-  const a = allArticles.find(x => x.id === id);
-  if (!a) return;
-  document.getElementById('list-view').style.display = 'none';
-  const detail = document.getElementById('detail-view');
-  detail.style.display = 'block';
-  
-  let html = `
-    <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 16px;">${a.typeLabel}</div>
-    <h2 style="font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 4vw, 32px); font-weight: 300; line-height: 1.4; color: var(--black); margin-bottom: 12px;">${a.title}</h2>
-    <div style="font-size: 13px; color: var(--gray-light); margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-rule);">客戶：${a.client} · ${a.date}</div>
-    <div style="font-size: 16px; color: var(--gray-dark); line-height: 1.9;">
-      ${a.content ? a.content.map(b => b.type === 'paragraph' ? `<p style="margin-bottom:20px">${b.text}</p>` : b.type === 'heading' ? `<h3 style="font-family:'Noto Serif TC', serif; font-size: 20px; margin: 40px 0 16px;">${b.text}</h3>` : '').join('') : ''}
-    </div>
-  `;
-
-  if (a.isLocked) {
-    html += `
-      <div style="position: relative; margin-top: -30px; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bg) 40%, var(--bg) 100%); text-align: center;">
-        <div style="max-width: 440px; margin: 0 auto; background: var(--bg-tint); padding: 36px 32px; border: 1px solid var(--gray-rule); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-          <div style="font-size: 24px; margin-bottom: 12px;">🔒</div>
-          <div style="font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--black); font-weight: 600; margin-bottom: 12px;">解鎖：頂尖健身房的「Day 0」留存戰略</div>
-          <div style="font-size: 14px; color: var(--gray-mid); margin-bottom: 24px; line-height: 1.7;">單靠衛教無法解決退費問題。輸入 Email 解鎖這篇文章背後的營運邏輯：包含「名單廣告過濾選項」與「現場顧問對接話術」，看懂如何把文字轉化為真實的續約率。</div>
-          <form action="https://formspree.io/f/mqakppza" method="POST" style="display: flex; gap: 8px; flex-direction: column;">
-            <input type="email" name="email" placeholder="輸入你的 Email..." required style="padding: 14px; border: 1px solid var(--gray-rule); border-radius: 2px; font-size: 14px; width: 100%; font-family: 'Noto Sans TC', sans-serif;">
-            <button type="submit" style="padding: 14px; background: var(--black); color: #fff; border: none; border-radius: 2px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; letter-spacing: 0.05em;">立即解鎖策略拆解</button>
-          </form>
-        </div>
-      </div>
-    `;
-  }
-
-  document.getElementById('detail-content').innerHTML = html;
-  window.scrollTo(0, 0);
-}
-
-function showList() {
-  document.getElementById('list-view').style.display = 'block';
-  document.getElementById('detail-view').style.display = 'none';
-}
-
-loadArticles();
-</script>
-
-</body>
-</html>
+]
