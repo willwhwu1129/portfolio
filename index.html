@@ -63,25 +63,25 @@ footer { border-top: 1px solid var(--gray-rule); padding: 28px 0; }
   <div id="list-view">
     <section class="hero" id="about">
       <div class="hero-label">健身產業七年實戰・品牌內容顧問</div>
-      <h1>從現場營運到消費者心理，<br>為你的健身品牌成為讓會員買單留存的內容。</h1>
+      <h1>用營運邏輯拆解會員心理，<br>寫出讓品牌獲利的轉化文案。</h1>
       <p class="hero-bio">
         當會員刷卡走進閘門那一刻，代表他受夠了衣櫃深處那件，明明很喜歡卻永遠拉不上拉鍊的當季牛仔褲。雖然流行會循環，但絕對不想等到下一次。<br><br>
         擁有健身產業七年實戰背景，我熟悉消費者從猶豫到決定的每一個心理節點。我看過太多人在自由重量區邊緣滑著手機，把時間耗在假裝運動的打卡上；也看著無數學員經歷「猶豫、簽約、消失、又回來」，最後因為看不見體態改變，在櫃檯前急著解約。<br><br>
         我知道一個人要說服自己踏進健身房需要多少勇氣，更深知一個品牌要讓人留下來有多難。<br><br>
-        所以，我將這些現場洞察轉化為品牌內容。<span class="hero-bio-highlight">把生硬的運動科學，轉譯成有溫度的教練語氣。</span>讓你的文字褪去教條式的說教，成為陪伴學員、讓他們心甘情願留下來的安定力量。
+        所以，我將這些現場洞察轉化為 brand content。<span class="hero-bio-highlight">把生硬的運動科學，轉譯成有溫度的教練語氣。</span>讓你的文字褪去教條式的說教，成為陪伴學員、讓他們心甘情願留下來的安定力量。
       </p>
       <p class="hero-cta">* 目前僅承接健身、運動科技、健康管理類案源。</p>
       <div class="hero-tags">
-        <span class="hero-tag">品牌轉化文案</span>
-        <span class="hero-tag">健身房營運洞察</span>
-        <span class="hero-tag">專業器材評測</span>
-        <span class="hero-tag">SEO 長文規劃</span>
+        <span class="hero-tag">內容戰略規劃</span>
+        <span class="hero-tag">場館營運洞察</span>
+        <span class="hero-tag">銷售轉化文案</span>
+        <span class="hero-tag">會員留存系統</span>
       </div>
     </section>
 
     <div class="filter-bar" id="portfolio">
       <button class="filter-btn active" data-filter="all" onclick="filterArticles('all', this)">全部作品</button>
-      <button class="filter-btn" data-filter="long-form" onclick="filterArticles('long-form', this)">長文寫作</button>
+      <button class="filter-btn" data-filter="long-form" onclick="filterArticles('long-form', this)">產業洞察</button>
       <button class="filter-btn" data-filter="social" onclick="filterArticles('social', this)">社群文案</button>
       <button class="filter-btn" data-filter="copywriting" onclick="filterArticles('copywriting', this)">銷售文案</button>
     </div>
@@ -105,7 +105,7 @@ footer { border-top: 1px solid var(--gray-rule); padding: 28px 0; }
 </footer>
 
 <script>
-const ARTICLES_URL = './articles.json';
+const ARTICLES_URL = 'https://willwhwu1129.github.io/portfolio/articles.json';
 let allArticles = [];
 let currentFilter = 'all';
 
@@ -115,7 +115,7 @@ async function loadArticles() {
     allArticles = await res.json();
     renderList(allArticles);
   } catch(e) {
-    document.getElementById('article-list').innerHTML = '<div class="loading">載入失敗。請確認 articles.json 路徑與格式正確。</div>';
+    document.getElementById('article-list').innerHTML = '<div class="loading">載入失敗。請確認路徑與格式。</div>';
   }
 }
 
@@ -153,22 +153,28 @@ function showDetail(id) {
     <h2 style="font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 4vw, 32px); font-weight: 300; line-height: 1.4; color: var(--black); margin-bottom: 12px;">${a.title}</h2>
     <div style="font-size: 13px; color: var(--gray-light); margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-rule);">客戶：${a.client} · ${a.date}</div>
     <div style="font-size: 16px; color: var(--gray-dark); line-height: 1.9;">
-      ${a.content ? a.content.map(b => b.type === 'paragraph' ? `<p style="margin-bottom:20px">${b.text}</p>` : '').join('') : ''}
+      ${a.content ? a.content.map(b => b.type === 'paragraph' ? `<p style="margin-bottom:20px">${b.text}</p>` : b.type === 'heading' ? `<h3 style="font-family:'Noto Serif TC', serif; font-size: 20px; margin: 40px 0 16px;">${b.text}</h3>` : '').join('') : ''}
     </div>
   `;
 
-  // 判斷是否為鎖定文章，並加上解鎖 Email 區塊
   if (a.isLocked) {
     html += `
       <div style="position: relative; margin-top: -30px; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bg) 40%, var(--bg) 100%); text-align: center;">
         <div style="max-width: 440px; margin: 0 auto; background: var(--bg-tint); padding: 36px 32px; border: 1px solid var(--gray-rule); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
           <div style="font-size: 24px; margin-bottom: 12px;">🔒</div>
-          <div style="font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--black); font-weight: 600; margin-bottom: 12px;">付費級商業洞察：這 5 個篩選痛點，具體該怎麼寫？</div>
-          <div style="font-size: 14px; color: var(--gray-mid); margin-bottom: 24px; line-height: 1.7;">想看懂如何用文字提早過濾掉「三個月就放棄」的無效客群？輸入 Email 免費解鎖這篇完整範文，並接收我為健身產業主理人專屬撰寫的【高轉化內容戰略】深度分析。</div>
-          
-          <form action="mailto:will.wh.wu1129@gmail.com" method="POST" enctype="text/plain" style="display: flex; gap: 8px; flex-direction: column;">
-            <input type="email" name="Email" placeholder="輸入你的 Email..." required style="padding: 14px; border: 1px solid var(--gray-rule); border-radius: 2px; font-size: 14px; width: 100%; font-family: 'Noto Sans TC', sans-serif;">
-            <button type="submit" style="padding: 14px; background: var(--black); color: #fff; border: none; border-radius: 2px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; letter-spacing: 0.05em;">立即解鎖完整文章</button>
+          <div style="font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--black); font-weight: 600; margin-bottom: 12px;">付費級解鎖內容：如何透過內容佈署，解決營運痛點？</div>
+          <div style="font-size: 14px; color: var(--gray-mid); margin-bottom: 24px; line-height: 1.7; text-align: left;">
+            單靠社群文案內容無法解決問題，它們只是策略載體。<br><br>
+            真正的價值在於我們如何將這些文字結合「名單型廣告定錨」與「現場顧問對接話術」來提升留存率。<br><br>
+            如果你想看懂我們如何處理：<br>
+            1. 「一月狂熱、三月解約」的惡性循環<br>
+            2. 針對距離痛點的廣告心理暗示<br>
+            3. 以及 Day 1-7 的三階段重點<br><br>
+            請輸入 Email 解鎖完整戰略報告。
+          </div>
+          <form action="https://formspree.io/f/xykoqvqa" method="POST" style="display: flex; gap: 8px; flex-direction: column;">
+            <input type="email" name="email" placeholder="輸入你的 Email..." required style="padding: 14px; border: 1px solid var(--gray-rule); border-radius: 2px; font-size: 14px; width: 100%; font-family: 'Noto Sans TC', sans-serif;">
+            <button type="submit" style="padding: 14px; background: var(--black); color: #fff; border: none; border-radius: 2px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; letter-spacing: 0.05em;">立即解鎖戰略報告</button>
           </form>
         </div>
       </div>
