@@ -8,165 +8,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --black: #111110;
-  --gray-dark: #3a3935;
-  --gray-mid: #6b6860;
-  --gray-light: #a8a59f;
-  --gray-rule: #e4e1da;
-  --bg: #ffffff;
-  --bg-tint: #f9f8f6;
-  --accent: #1a1a1a;
-  --tag-bg: #f2f0eb;
-  --tag-color: #5a5750;
-}
-
+:root { --black: #111110; --gray-dark: #3a3935; --gray-mid: #6b6860; --gray-light: #a8a59f; --gray-rule: #e4e1da; --bg: #ffffff; --bg-tint: #f9f8f6; --tag-bg: #f2f0eb; --tag-color: #5a5750; }
 html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--black);
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── LAYOUT ── */
+body { background: var(--bg); color: var(--black); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
 .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
-
-/* ── NAV ── */
-header {
-  border-bottom: 1px solid var(--gray-rule);
-  position: sticky; top: 0;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(8px);
-  z-index: 50;
-}
-.header-inner {
-  max-width: 680px; margin: 0 auto; padding: 0 24px;
-  height: 56px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.site-name {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 15px; font-weight: 600;
-  color: var(--black); text-decoration: none;
-  letter-spacing: 0.02em;
-}
-
-.header-nav {
-  display: flex; gap: 20px;
-}
-
-.header-link {
-  font-size: 13px; color: var(--gray-mid);
-  text-decoration: none; font-weight: 500;
-  transition: color 0.15s;
-}
+header { border-bottom: 1px solid var(--gray-rule); position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); z-index: 50; }
+.header-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+.site-name { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 600; color: var(--black); text-decoration: none; letter-spacing: 0.02em; }
+.header-nav { display: flex; gap: 20px; }
+.header-link { font-size: 13px; color: var(--gray-mid); text-decoration: none; font-weight: 500; transition: color 0.15s; }
 .header-link:hover { color: var(--black); }
-
-/* ── HERO / ABOUT ── */
 .hero { padding: 72px 0 56px; border-bottom: 1px solid var(--gray-rule); }
-.hero-label {
-  font-size: 11px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gray-light);
-  margin-bottom: 20px;
-}
-.hero h1 {
-  font-family: 'Noto Serif TC', serif;
-  font-size: clamp(28px, 5vw, 38px);
-  font-weight: 300; line-height: 1.4;
-  color: var(--black); margin-bottom: 24px;
-}
-.hero-bio {
-  font-size: 15px; color: var(--gray-dark);
-  line-height: 1.9; max-width: 540px;
-  margin-bottom: 16px;
-}
-.hero-bio-highlight {
-  font-weight: 500; color: var(--black);
-}
-.hero-cta {
-  font-size: 13px; color: var(--gray-light);
-  margin-bottom: 28px;
-}
+.hero-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 20px; }
+.hero h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(28px, 5vw, 38px); font-weight: 300; line-height: 1.4; color: var(--black); margin-bottom: 24px; }
+.hero-bio { font-size: 15px; color: var(--gray-dark); line-height: 1.9; max-width: 540px; margin-bottom: 16px; }
+.hero-bio-highlight { font-weight: 500; color: var(--black); }
+.hero-cta { font-size: 13px; color: var(--gray-light); margin-bottom: 28px; }
 .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.hero-tag {
-  font-size: 12px; color: var(--tag-color);
-  background: var(--tag-bg);
-  padding: 4px 12px; border-radius: 2px;
-  letter-spacing: 0.04em;
-}
-
-/* ── FILTER ── */
-.filter-bar {
-  padding: 40px 0 0;
-  display: flex; gap: 6px; flex-wrap: wrap;
-}
-.filter-btn {
-  font-size: 13px; font-family: 'Noto Sans TC', sans-serif;
-  color: var(--gray-mid); background: none;
-  border: 1px solid var(--gray-rule);
-  padding: 5px 14px; border-radius: 2px;
-  cursor: pointer; transition: all 0.15s;
-}
+.hero-tag { font-size: 12px; color: var(--tag-color); background: var(--tag-bg); padding: 4px 12px; border-radius: 2px; letter-spacing: 0.04em; }
+.filter-bar { padding: 40px 0 0; display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-btn { font-size: 13px; font-family: 'Noto Sans TC', sans-serif; color: var(--gray-mid); background: none; border: 1px solid var(--gray-rule); padding: 5px 14px; border-radius: 2px; cursor: pointer; transition: all 0.15s; }
 .filter-btn:hover { color: var(--black); border-color: #ccc; }
-.filter-btn.active {
-  color: var(--black); background: var(--black);
-  color: #fff; border-color: var(--black);
-}
-
-/* ── ARTICLE LIST ── */
+.filter-btn.active { color: #fff; background: var(--black); border-color: var(--black); }
 .article-list { padding: 8px 0 80px; }
-.article-item {
-  padding: 36px 0;
-  border-bottom: 1px solid var(--gray-rule);
-  display: grid;
-  grid-template-columns: 1fr 80px;
-  gap: 16px; align-items: start;
-  cursor: pointer; transition: opacity 0.15s;
-  text-decoration: none; color: inherit;
-}
+.article-item { padding: 36px 0; border-bottom: 1px solid var(--gray-rule); display: grid; grid-template-columns: 1fr 80px; gap: 16px; align-items: start; cursor: pointer; transition: opacity 0.15s; text-decoration: none; color: inherit; }
 .article-item:hover { opacity: 0.7; }
 .article-item:first-child { border-top: 1px solid var(--gray-rule); margin-top: 20px; }
-.article-type {
-  font-size: 11px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--gray-light);
-  margin-bottom: 10px;
-}
-.article-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 20px; font-weight: 400; line-height: 1.5;
-  color: var(--black); margin-bottom: 10px;
-}
-.article-summary {
-  font-size: 14px; color: var(--gray-mid);
-  line-height: 1.8;
-}
-.article-meta {
-  text-align: right;
-  font-size: 12px; color: var(--gray-light);
-  line-height: 1.7; padding-top: 4px;
-}
-
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--gray-rule);
-  padding: 28px 0;
-}
-.footer-inner {
-  max-width: 680px; margin: 0 auto; padding: 0 24px;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 8px;
-}
+.article-type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 10px; }
+.article-title { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 400; line-height: 1.5; color: var(--black); margin-bottom: 10px; }
+.article-summary { font-size: 14px; color: var(--gray-mid); line-height: 1.8; }
+.article-meta { text-align: right; font-size: 12px; color: var(--gray-light); line-height: 1.7; padding-top: 4px; }
+footer { border-top: 1px solid var(--gray-rule); padding: 28px 0; }
+.footer-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 .footer-name { font-size: 13px; color: var(--gray-light); }
 .footer-link { font-size: 13px; color: var(--gray-mid); text-decoration: none; border-bottom: 1px solid var(--gray-rule); transition: color 0.15s;}
 .footer-link:hover { color: var(--black); border-color: var(--black); }
-
-/* ── LOADING ── */
 .loading { padding: 60px 0; text-align: center; font-size: 14px; color: var(--gray-light); }
 </style>
 </head>
@@ -184,11 +60,10 @@ footer {
 </header>
 
 <main class="container">
-
   <div id="list-view">
     <section class="hero" id="about">
       <div class="hero-label">健身產業七年實戰・品牌內容顧問</div>
-      <h1>從現場營運到消費者心理，<br>為你的健身品牌建構高留存內容。</h1>
+      <h1>從現場營運到消費者心理，<br>為你的健身品牌成為讓會員買單留存的內容。</h1>
       <p class="hero-bio">
         當會員刷卡走進閘門那一刻，代表他受夠了衣櫃深處那件，明明很喜歡卻永遠拉不上拉鍊的當季牛仔褲。雖然流行會循環，但絕對不想等到下一次。<br><br>
         擁有健身產業七年實戰背景，我熟悉消費者從猶豫到決定的每一個心理節點。我看過太多人在自由重量區邊緣滑著手機，把時間耗在假裝運動的打卡上；也看著無數學員經歷「猶豫、簽約、消失、又回來」，最後因為看不見體態改變，在櫃檯前急著解約。<br><br>
@@ -220,7 +95,6 @@ footer {
     <button onclick="showList()" style="font-size: 13px; color: var(--gray-mid); background: none; border: none; cursor: pointer; margin-bottom: 40px;">← 返回作品列表</button>
     <div id="detail-content"></div>
   </div>
-
 </main>
 
 <footer>
@@ -231,7 +105,6 @@ footer {
 </footer>
 
 <script>
-// ── CONFIG ──
 const ARTICLES_URL = './articles.json';
 let allArticles = [];
 let currentFilter = 'all';
@@ -242,7 +115,7 @@ async function loadArticles() {
     allArticles = await res.json();
     renderList(allArticles);
   } catch(e) {
-    document.getElementById('article-list').innerHTML = '<div class="loading">載入失敗。</div>';
+    document.getElementById('article-list').innerHTML = '<div class="loading">載入失敗。請確認 articles.json 路徑與格式正確。</div>';
   }
 }
 
@@ -252,7 +125,7 @@ function renderList(articles) {
   el.innerHTML = filtered.map(a => `
     <a class="article-item" href="#${a.id}" onclick="showDetail('${a.id}'); return false;">
       <div>
-        <div class="article-type">${a.typeLabel}</div>
+        <div class="article-type">${a.typeLabel} ${a.isLocked ? '🔒' : ''}</div>
         <div class="article-title">${a.title}</div>
         <div class="article-summary">${a.summary}</div>
       </div>
@@ -274,12 +147,35 @@ function showDetail(id) {
   document.getElementById('list-view').style.display = 'none';
   const detail = document.getElementById('detail-view');
   detail.style.display = 'block';
-  document.getElementById('detail-content').innerHTML = `
+  
+  let html = `
     <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 16px;">${a.typeLabel}</div>
     <h2 style="font-family: 'Noto Serif TC', serif; font-size: clamp(24px, 4vw, 32px); font-weight: 300; line-height: 1.4; color: var(--black); margin-bottom: 12px;">${a.title}</h2>
     <div style="font-size: 13px; color: var(--gray-light); margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--gray-rule);">客戶：${a.client} · ${a.date}</div>
-    <div style="font-size: 16px; color: var(--gray-dark); line-height: 1.9;">${a.content ? a.content.map(b => b.type === 'paragraph' ? `<p style="margin-bottom:20px">${b.text}</p>` : '').join('') : ''}</div>
+    <div style="font-size: 16px; color: var(--gray-dark); line-height: 1.9;">
+      ${a.content ? a.content.map(b => b.type === 'paragraph' ? `<p style="margin-bottom:20px">${b.text}</p>` : '').join('') : ''}
+    </div>
   `;
+
+  // 判斷是否為鎖定文章，並加上解鎖 Email 區塊
+  if (a.isLocked) {
+    html += `
+      <div style="position: relative; margin-top: -30px; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bg) 40%, var(--bg) 100%); text-align: center;">
+        <div style="max-width: 440px; margin: 0 auto; background: var(--bg-tint); padding: 36px 32px; border: 1px solid var(--gray-rule); border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+          <div style="font-size: 24px; margin-bottom: 12px;">🔒</div>
+          <div style="font-family: 'Noto Serif TC', serif; font-size: 18px; color: var(--black); font-weight: 600; margin-bottom: 12px;">付費級商業洞察：這 5 個篩選痛點，具體該怎麼寫？</div>
+          <div style="font-size: 14px; color: var(--gray-mid); margin-bottom: 24px; line-height: 1.7;">想看懂如何用文字提早過濾掉「三個月就放棄」的無效客群？輸入 Email 免費解鎖這篇完整範文，並接收我為健身產業主理人專屬撰寫的【高轉化內容戰略】深度分析。</div>
+          
+          <form action="mailto:will.wh.wu1129@gmail.com" method="POST" enctype="text/plain" style="display: flex; gap: 8px; flex-direction: column;">
+            <input type="email" name="Email" placeholder="輸入你的 Email..." required style="padding: 14px; border: 1px solid var(--gray-rule); border-radius: 2px; font-size: 14px; width: 100%; font-family: 'Noto Sans TC', sans-serif;">
+            <button type="submit" style="padding: 14px; background: var(--black); color: #fff; border: none; border-radius: 2px; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.15s; letter-spacing: 0.05em;">立即解鎖完整文章</button>
+          </form>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('detail-content').innerHTML = html;
   window.scrollTo(0, 0);
 }
 
