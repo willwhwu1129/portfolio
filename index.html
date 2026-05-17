@@ -499,7 +499,7 @@ function showDetail(id) {
     <div class="detail-client">客戶：${a.client} · ${a.date}</div>
   `;
 
-  if (a.type === 'long-form') {
+  if (a.type === 'long-form' || a.type === 'team') {
     html += `<div class="prose">${renderProse(a.content)}</div>`;
   } else if (a.type === 'social') {
     html += renderIGPosts(a.posts);
