@@ -84,18 +84,6 @@
     ]
   },
   {
-    "id": "gym-insider-003",
-    "type": "long-form",
-    "typeLabel": "營運分析",
-    "title": "你的廣告在溝通品牌，還是折扣？",
-    "summary": "「便宜」在某些時刻立竿見影，但如果全然只溝通便宜，沒有策略組合，你做的或許不是品牌，是在替自己挖坑。",
-    "date": "2026-06",
-    "client": "GYM INSIDER #003",
-    "content": [
-      { "type": "paragraph", "text": "這篇即將發布，訂閱電子報第一時間收到通知。" }
-    ]
-  },
-  {
     "id": "gym-insider-004",
     "type": "long-form",
     "typeLabel": "營運分析",
